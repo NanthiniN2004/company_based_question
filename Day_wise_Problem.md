@@ -498,3 +498,115 @@ Product of odd Integer range between 3 and 7: 105
 
 ````
 
+## Find Maximum Number of Meetings in a Room 
+## Given a set of meetings with start and end times, determine the maximum number of meetings that can be scheduled in a single room. 
+## input :  
+## intervals[] =  ([(1, 4),(2, 5), (3, 6), (5, 8), (7, 9])
+
+````JAVA[]
+
+package day;
+import java.util.*;
+public class Comparing {
+
+	public static int maximumNumber(int[][] interval) {
+		Arrays.sort(interval,Comparator.comparingInt(a -> a[1]));
+		int count = 0; 
+        int lastEndTime = Integer.MIN_VALUE;;
+
+        for (int[] meeting : interval) {
+            if (meeting[0] >= lastEndTime) {
+                count++;
+                lastEndTime = meeting[1]; 
+            }
+        }
+        return count;
+	}
+	public static void main(String[] args) {
+	   Scanner s=new Scanner(System.in);
+	   int m=s.nextInt();
+	   int arr[][]=new int[m][2];
+	   for (int i = 0; i < m; i++) {
+           arr[i][0] = s.nextInt();  
+           arr[i][1] = s.nextInt();  
+       }
+	   int result=maximumNumber(arr);
+	   System.out.println("Maximum number of overlapping: "+ result);
+	}
+
+}
+
+OUTPUT:
+Enter number of meetings:
+5
+Enter start and end times:
+ 1 4
+2 5
+3 6
+5 8
+7 9
+
+Maximum number of non-overlapping meetings: 2
+
+````
+
+##  Count frequency of each element in the array 
+## Problem statement: Given an array, we have found the number of occurrences of each element in the array. 
+## Example 1: 
+## Input: arr[] = {10,5,10,15,10,5}; 
+## Example2:  
+## Input: arr[] = {2,2,3,4,4,2};
+
+````java[]
+
+
+package day;
+import java.util.*;
+public class Main5 {
+
+	public static void main(String[] args) {
+		Scanner s=new Scanner(System.in);
+		int n=s.nextInt();
+		int[] a=new int[n];
+		for(int i=0;i<n;i++) {
+			a[i]=s.nextInt();
+			
+		}
+		boolean[] visited=new boolean[n];
+
+	
+		for(int i=0;i<n;i++) {
+			if(visited[i]==true) {
+				continue;
+			}
+			int count=1;
+			for(int j=i+1;j<n;j++) {
+				if(a[i]==a[j]) {
+					visited[j]=true;
+					count++;
+				}
+			}
+			System.out.println(a[i] +": "+ count);
+		}
+
+	}
+
+}
+
+OUTPUT:
+
+6
+7
+3
+7
+4
+3
+8
+7: 2
+3: 2
+4: 1
+8: 1
+
+````
+
+
