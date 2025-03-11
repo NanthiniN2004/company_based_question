@@ -112,7 +112,7 @@ OUTPUT:
 Majority Element: 3
 
 `````
-## Find the kth largest and smallest number in an array 
+## 3) Find the kth largest and smallest number in an array 
 ## Task 1: Find the kth smallest score (You need to find the 3rd smallest score in this list.)
 ## Task 2: Find the kth largest score (You also need to find the 2nd largest score in this list.) 
 ## You have the following scores recorded for 10 participants:  (scores = [65, 89, 45, 72, 54, 91, 32, 77, 60, 82])
@@ -167,7 +167,7 @@ Enter k value
 
 `````
 
-## FIND THE THIRD MAXIMUM ELEMENT
+## 4) FIND THE THIRD MAXIMUM ELEMENT
 ````JAVA[]
 
 class Solution {
@@ -193,7 +193,7 @@ class Solution {
 
 ````
 
-## Find Original Array From Doubled Array 
+## 5) Find Original Array From Doubled Array 
 
 ## Problem Statement: A doubled array changed is formed from the original array after appending twice the value of each element in the original array and randomly shuffling elements in the updated original array. Given an array changed, return the original array if changed is a valid doubled array. Otherwise, return empty array. 
 ## Example:  Input: changed = [2,4,1,8] 
@@ -252,7 +252,7 @@ OUTPUT:
 
 ````
 
-##  The function accepts two positive integers ‘r’ and ‘unit’ and a positive integer array ‘arr’ of size ‘n’ as its argument ‘r’ represents the number of rats present in an area, ‘unit’ is the amount of food each rat consumes and each ith element of array ‘arr’ represents the amount of food present in ‘i+1’ house number, where 0 <= i. 
+## 6)  The function accepts two positive integers ‘r’ and ‘unit’ and a positive integer array ‘arr’ of size ‘n’ as its argument ‘r’ represents the number of rats present in an area, ‘unit’ is the amount of food each rat consumes and each ith element of array ‘arr’ represents the amount of food present in ‘i+1’ house number, where 0 <= i. 
 ## Note: 
 ## Return -1 if the array is null. 
 ## Return 0 if the total amount of food from all houses is not sufficient for all the rats. 
@@ -332,7 +332,7 @@ Require House: 4
 
 ````
 
-##  Given  two integers M and N, calculate the  sum of the squares of all the prime numbers between from M and N inclusive.if M is greater than N , return 0 or display an appropriate message  
+## 7)  Given  two integers M and N, calculate the  sum of the squares of all the prime numbers between from M and N inclusive.if M is greater than N , return 0 or display an appropriate message  
 ## Test Case 01 : M = 2, N = 10 
 ## Test Case 02 : M = 11, N = 20 
 ## Test Case 03 : M = 4, N = 4 
@@ -384,7 +384,7 @@ Sum of Square of prime number between 11 and 20: 940
 
 ````
 
-##  You are developing a system for an online bookstore. The system has different types of customers: regular customers, premium members, and admin users. The bookstore has the following rules for applying discounts: 
+##  8) You are developing a system for an online bookstore. The system has different types of customers: regular customers, premium members, and admin users. The bookstore has the following rules for applying discounts: 
 ## Regular customers: 
 If they have bought more than 5 books in the last 6 months, they get a 10% discount. 
 Otherwise, they get no discount. 
@@ -456,6 +456,45 @@ Discount percentage 15.0%
 
 ````
 
+## 9)  Given  two integers M and N, calculate the product  of all odd integers from M and N inclusive.if M is greater than N , return 1 or display an appropriate message. 
+## Test Case 1: M = 3, N =7  
+## Test Case 02 : M = 2, N = 5 
+## Test Case 03 : M = 6, N = 6
 
 
+````java[]
+
+package day;
+import java.util.*;
+public class Product {
+
+	public static void main(String[] args) {
+    Scanner s=new Scanner(System.in);
+    int m=s.nextInt();
+    int n=s.nextInt();
+    int prod=1;
+    if(m>n) {
+    	System.out.println("Invalid input");
+    	return;
+    }
+    for(int i=m;i<=n;i++) {
+    	if(i%2!=0)
+    	{
+    		prod*=i;
+    	}
+    }
+    System.out.println("Product of odd Integer range between "+ m+ " and "+n +": " + prod);
+
+	}
+
+}
+
+
+OUTPUT:
+
+3
+7
+Product of odd Integer range between 3 and 7: 105
+
+````
 
