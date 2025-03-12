@@ -664,5 +664,68 @@ OUTPUT:
 25
 `````
 
-##  
+##  13)   You are working as a software engineer for a popular online shopping platform. The company wants to optimize its recommendation system by providing the top-selling products to its users based on their sales data. The company has a list of sales data for various products, where each product has a total number of units sold. The company needs to know the Kth largest-selling product so that it can prioritize inventory and recommend these top products to the users. You are tasked with writing a program that finds the Kth largest-selling product based on the number of units sold. 
+## Input: 
+An array of integers, where each integer represents the number of units sold for 
+each product. 
+An integer K which represents the rank of the product you want to find (for example, 
+if K=3, you want to find the 3rd largest-selling product). 
+## Example: 
+## Given the array of sales data salesData = [100, 200, 50, 400, 300] and K = 2, the 
+## second-largest-selling product has sold 300 units. 
+## Constraints: 
+The array length can range from 1 to 10^5 elements. 
+The sales data is guaranteed to be non-negative integers.
+
+````java[]
+
+package day;
+import java.util.*;
+public class Main8 {
+  public static void main(String args[]) {
+	  Scanner s=new Scanner(System.in);
+	  int n=s.nextInt();
+	  int[] a=new int[n];
+	  for(int i=0;i<n;i++) {
+		  a[i]=s.nextInt();
+		  
+	  }
+	  System.out.println("Enter k value");
+	  int k=s.nextInt();
+	  for(int i=0;i<n;i++) {
+		  for(int j=0;j<n;j++) {
+			  if(a[i]<a[j]) {
+				  int temp=a[i];
+				  a[i]=a[j];
+				  a[j]=temp;
+			  }
+		  }
+	  }
+	  System.out.println(k+"th largest Element:" + a[n-k]);
+	 
+  }
+}
+
+OUTPUT:
+5
+100
+200
+50
+400
+300
+Enter k value
+2
+2th largest Element:300
+
+````
+
+## 14)  You have been hired by a software development company to help with a function that finds all pairs of integers in an array whose sum equals a specified target value. The company needs to ensure that the program handles duplicate pairs correctly, meaning that each unique pair should only be returned once, regardless of the order in which the numbers appear in the array. You are required to write a program that: Takes an array of integers and a target sum as input. Returns all unique pairs of integers in the array whose sum equals the target value. 
+## Sample Input  : 
+## arr = [10, 15, 3, 7, 5, -1, 1, 11] 
+## target = 10
+
+````java[]
+
+
+
 
