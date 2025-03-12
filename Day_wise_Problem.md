@@ -498,7 +498,7 @@ Product of odd Integer range between 3 and 7: 105
 
 ````
 
-## Find Maximum Number of Meetings in a Room 
+## 10) Find Maximum Number of Meetings in a Room 
 ## Given a set of meetings with start and end times, determine the maximum number of meetings that can be scheduled in a single room. 
 ## input :  
 ## intervals[] =  ([(1, 4),(2, 5), (3, 6), (5, 8), (7, 9])
@@ -550,7 +550,7 @@ Maximum number of non-overlapping meetings: 2
 
 ````
 
-##  Count frequency of each element in the array 
+## 11)  Count frequency of each element in the array 
 ## Problem statement: Given an array, we have found the number of occurrences of each element in the array. 
 ## Example 1: 
 ## Input: arr[] = {10,5,10,15,10,5}; 
@@ -609,4 +609,60 @@ OUTPUT:
 
 ````
 
+## 12)  Find Smallest integer made up of factors 
+## Find the smallest integer value 'b'for the given value of 'a'.  If we multiply the digits of 'b', we should get the exact value of 'a'. Result 'b' must contain more than one digit. 
+## If it is not possible Print Invalid as output. 
+## Examples: 
+## 1.Input: 10
+   Output: 25
+  Explanation: 2*5 = 10. Hence 25 is the smallest value for 10.
+## 2.Input: 13
+     Output: Invalid
+
+````java[]
+
+package day;
+import java.util.*;
+public class Factor {
+    public static String fact(int a) {
+    	if(a<10) {
+			return String.valueOf(a + 10);
+		}
+    	ArrayList<Integer> factor=new ArrayList<>();
+    	for(int i=9;i>=2;i--) {
+    		while(a%i==0) {
+    			factor.add(i);
+    			a/=i;
+    		}
+    	}
+    	if(a>1) {
+    		System.out.println("Invalid");
+    	}
+    	Collections.sort(factor);
+    	StringBuilder result=new StringBuilder();
+    	for(int num: factor) {
+    		result.append(num);
+    	}
+    	return result.toString();
+    	
+    }
+	public static void main(String[] args) {
+		Scanner s=new Scanner(System.in);
+		int a=s.nextInt();
+	  String b=fact(a);
+	  
+		System.out.println(b);
+
+	}
+
+}
+
+
+OUTPUT:
+
+10
+25
+`````
+
+##  
 
