@@ -727,5 +727,154 @@ Enter k value
 ````java[]
 
 
+package day;
+import java.util.*;
+public class Main9 {
+	public static Set<List<Integer>> findPairs(int[] a, int target) {
+		Arrays.sort(a);
+		int n=a.length;
+	      Set<List<Integer>> res=new HashSet<>();
+	      int left=0;
+	      int right=n-1;
+	      while(left<=right) {
+	    	  int sum=a[left]+a[right];
+	    	  if(sum==target) {
+	    		  res.add(Arrays.asList(a[left],a[right]));
+	    		  left++;
+	    		  right--;
+	    	  }
+	    	  else if(sum<target) {
+	    		  left++;
+	    	  }
+	    	  else {
+	    		  right--;
+	    	  }
+	      }
+	      return res;
+		
+	}
+
+	public static void main(String[] args) {
+	Scanner s=new Scanner(System.in);
+	int n=s.nextInt();
+	int[] a=new int[n];
+	for(int i=0;i<n;i++) {
+		a[i]=s.nextInt();
+	}
+	int target=s.nextInt();
+	Set<List<Integer>> pairs = findPairs(a, target);
+    System.out.println("Unique pairs with sum " + target + ": " + pairs);
+      
+
+	}
+
+}
+
+
+OUTPUT:
+
+8
+10
+15
+3
+7
+5
+-1
+1
+11
+10
+Unique pairs with sum 10: [[5, 5], [3, 7], [-1, 11]]
+
+`````
+
+## 14) write a java program to move all the zeros to the end in given array . 
+## Input :  int[] arr = {0, -1, 0, 3, 0, -2, 0, -12, -1};
+
+````java[]
+
+package day;
+import java.util.*;
+public class Moveallzeros {
+
+	public static void main(String[] args) {
+		Scanner s=new Scanner(System.in);
+		int n=s.nextInt();
+		int[] a=new int[n];
+		for(int i=0;i<n;i++) {
+			a[i]=s.nextInt();
+		}
+		
+		int j=0;
+		for(int i=0;i<n;i++) {
+			if(a[i]!=0) {
+				a[j++]=a[i];
+			}
+		}
+			while(j<n) {
+				a[j++]=0;
+			}
+		
+		for(int i=0;i<n;i++) {
+			System.out.print(a[i]+" ");
+		}
+
+	}
+
+}
+
+
+OUTPUT:
+
+9
+0
+-1
+0
+3
+0
+-2
+0
+-12
+-1
+-1 3 -2 -12 -1 0 0 0 0
+
+`````
+
+## Day 18 - Develop  booking system for a hotel. The system calculates the final booking price for a guest based on several factors including the type of room, the length of stay, seasonality (peak or off-peak season), and whether the guest has any special discounts. The rules for pricing are as follows:
+
+## Room Types:
+
+Standard: $100 per night
+
+Deluxe: $200 per night
+
+Suite: $300 per night
+
+
+## Stay Length:
+
+Stay of 1-3 nights: No discount
+Stay of 4-7 nights: 5% discount on the total room cost
+Stay of 8+ nights: 10% discount on the total room cost
+
+
+## Season:
+
+Peak season: From December to February (higher prices)
+Apply a 20% surcharge on the base room price.
+Off-peak season: All other months (normal pricing)
+
+
+## Discounts:
+
+VIP Guests: If the guest is a VIP, they get an additional 15% discount on the final amount.
+Special Discount Code: If the guest enters a valid discount code, they receive a 10% discount on the total room cost (this can be combined with other discounts)
+## other Rules:
+
+Cancellation Policy: If the guest cancels the booking within 48 hours of the check-in date, they will incur a 50% cancellation fee based on the total booking cost.
+Taxes: A 12% tax is applied to the final price after any discounts but before the cancellation fee.
+
+## Requirements:
+
+Write an if-else block to calculate the total cost for the guest based on the inputs. Consider the room type, stay length, seasonality, VIP status, discount codes, and cancellation policy. Ensure that taxes are applied last, after all discounts but before cancellation fees.
 
 
