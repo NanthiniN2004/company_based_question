@@ -876,5 +876,211 @@ Taxes: A 12% tax is applied to the final price after any discounts but before th
 ## Requirements:
 
 Write an if-else block to calculate the total cost for the guest based on the inputs. Consider the room type, stay length, seasonality, VIP status, discount codes, and cancellation policy. Ensure that taxes are applied last, after all discounts but before cancellation fees.
+````java[]
 
+````
+
+## Day 25 - Problem Solving for the day - 22.03.2025 
+## Write a java program to convert string to Integer (without using Integer.parseInt) 
+## Sample Inputs and Expected Outputs: 
+## Positive integer: 
+## Input: "12345" 
+## Expected Output: 12345 
+## Negative integer: 
+## Input: "-6789" 
+## Expected Output: -6789 
+## Single digit positive number: 
+## Input: "7" 
+## Expected Output: 7 
+##  digit negative number: 
+## Input: "-3" 
+## Expected Output: -3
+
+````java[]
+
+
+import java.util.*;
+public class StringintoInt
+{
+	public static void main(String[] args) {
+	  Scanner s=new Scanner(System.in);
+	  String str=s.next();
+	  int num=0;
+	  int n=str.length();
+	  for(int i=0;i<n;i++){
+	      num=(num*10)+((int)str.charAt(i)-48);
+	  }
+	  System.out.println(num);
+	
+	}
+}
+
+OUTPUT:
+
+123
+123
+
+````
+
+##  Day 24 - Problem Solving for the day - 21.03.2025  
+## Find the Missing Number in an Array Given an array containing n-1 integers where the integers are in the range 1 to n, find the missing number 
+## Sample Input : 
+## Arr = {1,2,3,5,6,7,8}
+
+````java[]
+
+import java.util.*;
+public class Missingnumber
+{
+	public static void main(String[] args) {
+	  Scanner s=new Scanner(System.in);
+	  int n=s.nextInt();
+	  int[] a=new int[n];
+	  for(int i=0;i<n;i++){
+	     a[i]=s.nextInt();
+	 }
+	 int res=(n*(n+1))/2;
+	 int sum=0;
+	 for(int i=0;i<n-1;i++){
+	     sum+=a[i];
+	 }
+	  int missingnumber=res-sum;
+	  System.out.println("missingnumber "+ missingnumber);
+	
+	}
+}
+
+
+OUTPUT:
+
+8
+1
+2
+3
+5
+6
+7
+8
+9
+missingnumber 4
+
+````
+##  Day 23 - Problem Solving for the day - 20.03.2025  
+## Merge Two Sorted Arrays 
+## Write a program to merge two sorted arrays into a single sorted array. 
+## Example: 
+Input:  
+arr1 = {1, 3, 5},  
+arr2 = {2, 4, 6}
+
+````java[]
+
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+	  Scanner s=new Scanner(System.in);
+	  int n=s.nextInt();
+	  int m=s.nextInt();
+	  int[] a=new int[n];
+	  int[] b=new int[m];
+	  int[] res=new int[m+n];
+	  for(int x=0;x<n;x++){
+	     a[x]=s.nextInt();
+	 }
+	 for(int x=0;x<m;x++){
+	     b[x]=s.nextInt();
+	     
+	 }
+	 int i=0,j=0,k=0;
+	 while(i<n && j<m){
+	     if(a[i]<b[j]){
+	         res[k++]=a[i++];
+	     }
+	     else{
+	         res[k++]=b[j++];
+	     }
+	 }
+	 while(i<n){
+	     res[k++]=a[i++];
+	   
+	 }
+	 while(j<m){
+	     res[k++]=b[j++];
+	 }
+	 System.out.println("Merged Sorted Array "+Arrays.toString(res));
+	}
+}
+
+output:
+
+3
+3
+1
+3
+5
+2
+4
+6
+Merged Sorted Array [1, 2, 3, 4, 5, 6]
+
+````
+
+## . Day 22 - Problem Solving for the day - 19.03.2025  
+## Write a Java program to find the common elements between two arrays.. 
+## Sample Input:  
+Arr1 = {1,2,4,5,6} 
+Arr2 ={4,5,2,7,8}
+
+````java[]
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+	  Scanner s=new Scanner(System.in);
+	  int n=s.nextInt();
+	  int m=s.nextInt();
+	  int[] a=new int[n];
+	  int[] b=new int[m];
+	  for(int x=0;x<n;x++){
+	     a[x]=s.nextInt();
+	 }
+	 for(int x=0;x<m;x++){
+	     b[x]=s.nextInt();
+	     
+	 }
+	 System.out.println("Common Element");
+    for(int i=0;i<n;i++){
+        for(int j=0;j<m;j++){
+            if(a[i]==b[j]){
+                System.out.print(a[i]+" ");
+            }
+        }
+    }
+	}
+}
+OUTPUT:
+
+5
+5
+1
+2
+4
+5
+6
+4
+5
+2
+7
+8
+Common Element
+2 4 5
+````
+## 29. Day 19 - Problem  Solving for the day - 12.03.2025 
+## Rearrange Positive and Negative Numbers 
+## Write a program that rearranges the elements in an array so that positive and negative numbers are placed alternately.. 
+## Sample input 01  
+int[] arr = {1, -2, 3, -4, 5, -6, 7}; 
+Sample input 02  
+int[] arr = {1, -2, 3, -4, 5};
 
