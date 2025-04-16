@@ -17,13 +17,6 @@ import java.util.*;
 public class Main
 {
 	public static void main(String[] args) {
-	  /* String str="apple";
-	   String ch1="a";
-	    String ch2="p";
-	    String replace=str.replaceAll(ch1,ch2);
-	     replace=str.replaceAll(ch2,ch1);
-		System.out.println(replace);*/
-		
 		Scanner s=new Scanner(System.in);
 		System.out.println("Enter the string");
 		String str=s.nextLine();
@@ -68,6 +61,59 @@ Enter the two character
 a
 p
 paale
+
+````
+
+##  Day 38 - Problem Solving for the day - 07.04.2025  
+## A carry is a digit that is transferred to left if sum of digits exceeds 9 while adding two numbers from right-to-left one digit at a time You are required to implement the following function. Int NumberOfCarries(int num1 , int num2); The functions accepts two numbers ‘num1’ and ‘num2’ as its arguments. You are required to calculate and return  the total number of carries generated while adding digits of two numbers ‘num1’ and ‘ num2’. Assumption: num1, num2>=0 
+## Example: 
+## Input 
+Num 1: 451 
+Num 2: 349 
+## Output 
+2
+
+````java[]
+
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+		Scanner s=new Scanner(System.in);
+		System.out.println("Enter the number 1");
+		int n1=s.nextInt();
+		System.out.println("Enter the number 2");
+		int n2=s.nextInt();
+		int carry=0;
+		int count=0;
+		while(n1>0 || n2>0)
+		{
+		    int d1=n1%10;
+		    int d2=n2%10;
+		    int sum=d1+d2+carry;
+		    if(sum>=10)
+		    {
+		        carry=1;
+		        count++;
+		        
+		    }
+		    else{
+		        carry=0;
+		    }
+		    n1/=10;
+		    n2/=10;
+		}
+		System.out.println("count of the carry "+count);
+	
+	}
+}
+
+OUTPUT:
+Enter the number 1
+5892
+Enter the number 2
+3108
+count of the carry 3
 
 ````
 
