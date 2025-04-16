@@ -466,6 +466,136 @@ NUMBER OF CANDIES LEFT : 7
 
 ````
 
-## 
+## Day 33 - Problem Solving for the day - 31.03.2025  
+## Remove the N-th node from the end of a singly linked list. 
+## Sample Input : 1 -> 2 -> 3 -> 4 -> 5 and n = 2  (Approach: Use two pointers to find the N-th node from the end)
+
+````java[]
+
+package sample;
+
+import java.util.*;
+class Node{
+	int data;
+	Node next;
+	Node(int data)
+	{
+		this.data=data;
+		this.next=null;
+		}
+}
+ class Linkedlist
+{  
+	 Node head,tail;
+	public void insertatbegin(int data)
+	{
+		Node newnode=new Node(data);
+		if(head==null)
+		{
+			head=newnode;
+		}
+		else
+		{
+			newnode.next=head;
+			head=newnode;
+		}
+	}
+	public void insertatend(int data)
+	{
+		Node newnode=new Node(data);
+		if(head==null)
+		{
+			head=newnode;
+			tail=newnode;
+		}
+		else
+		{
+			tail.next=newnode;
+			tail=newnode;
+		}
+	}
+	
+	
+	public void display()
+	{
+		Node temp=head;
+		while(temp!=null)
+		{
+			System.out.print(temp.data+" ");
+			temp=temp.next;
+		}
+	}
+	public Node finddel(int n)
+	{
+		Node dummy=new Node(0);
+		dummy.next=head;
+		Node first=dummy;
+		Node second=dummy;
+		for(int i=0;i<=n;i++)
+		{
+			first=first.next;
+		}
+		while(first!=null)
+		{
+			first=first.next;
+			second=second.next;
+		}
+		second.next=second.next.next;
+		return dummy.next;
+		
+	}
+}
+public class Main{
+
+	public static void main(String[] args) {
+		Scanner s=new Scanner(System.in);
+		Linkedlist obj=new Linkedlist();
+		System.out.println("Enter the element");
+		while(true)
+		{
+			int val=s.nextInt();
+			if(val==-1)
+			{
+				break;
+			}
+			obj.insertatend(val);
+		}
+		obj.display();
+		System.out.println("\nEnter the n value");
+		int n=s.nextInt();
+		System.out.println("After Delete nth element");
+		obj.finddel(n);
+		obj.display();
+		
+	}
+
+}
+
+
+OUTPUT:
+
+Enter the element
+1
+2
+3
+4
+5
+-1
+1 2 3 4 5 
+Enter the n value
+2
+After Delete the element
+1 2 3 5
+
+`````
+
+##   Day 32 - Problem Solving for the day - 29.03.2025  
+## Write a java program to find the middle element in singly linked list  
+## Sample Input : 
+## Linked List: 1 -> 2 -> 3 -> 4 -> 5
+
+````JAVA[]
+
+
 
 
