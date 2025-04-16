@@ -596,6 +596,473 @@ After Delete the element
 
 ````JAVA[]
 
+package sample;
+
+import java.util.*;
+class Node{
+	int data;
+	Node next;
+	Node(int data)
+	{
+		this.data=data;
+		this.next=null;
+		}
+}
+ class Linkedlist
+{  
+	 Node head,tail;
+	public void insertatbegin(int data)
+	{
+		Node newnode=new Node(data);
+		if(head==null)
+		{
+			head=newnode;
+		}
+		else
+		{
+			newnode.next=head;
+			head=newnode;
+		}
+	}
+	public void insertatend(int data)
+	{
+		Node newnode=new Node(data);
+		if(head==null)
+		{
+			head=newnode;
+			tail=newnode;
+		}
+		else
+		{
+			tail.next=newnode;
+			tail=newnode;
+		}
+	}
+	
+	
+	public void display()
+	{
+		Node temp=head;
+		while(temp!=null)
+		{
+			System.out.print(temp.data+" ");
+			temp=temp.next;
+		}
+	}
+	
+	public int middle( )
+	{
+		Node slow=head;
+		Node fast=head;
+		while(fast!=null && fast.next!=null)
+		{
+			slow=slow.next;
+			fast=fast.next.next;
+		}
+		return slow.data;
+	}
+}
+public class Main{
+
+	public static void main(String[] args) {
+		Scanner s=new Scanner(System.in);
+		Linkedlist obj=new Linkedlist();
+		System.out.println("Enter the element");
+		while(true)
+		{
+			int val=s.nextInt();
+			if(val==-1)
+			{
+				break;
+			}
+			obj.insertatend(val);
+		}
+		obj.display();
+		System.out.println("\nMiddle element of the list "+obj.middle())
+	}
+}
+
+OUTPUT:
+
+Enter the element
+20
+30
+40
+50
+60
+70
+-1
+20 30 40 50 60 70
+Middle element of the list 50
+
+`````
+
+## Day 31 - Problem Solving for the day - 28.03.2025  
+## The company uses a system that tracks the delivery of packages in a sequence of locations (represented as an array). Each location is identified by an integer (e.g., 1 for Location 1, 2 for Location 2, etc.). Due to a change in the delivery route, the system needs to shift (rotate) the locations by a certain number of positions. Given an array of integers representing the delivery route, you need to rotate the array by K positions to the right. If K is negative, the rotation should be to the left. For example, rotating an array [1, 2, 3, 4, 5] by 2 positions results in [4, 5, 1, 2, 3]. 
+## Sample Input 01 : 
+Enter the number of delivery locations: 5 
+Enter the delivery locations (integers): 1 2 3 4 5 
+Enter the number of positions to rotate: 2 
+## Sample Input 02 : ( Negative Rotation ) 
+Enter the number of delivery locations: 6 
+Enter the delivery locations (integers):  10 20 30 40 50 60 
+Enter the number of positions to rotate: -3
+
+
+````java[]
+
+package sample;
+import java.util.*;
+public class Main2 {
+
+	public static void leftrotate(int a[],int d,int n)
+	{
+		d%=n;
+		reverse(a,0,d-1);
+		reverse(a,d,n-1);
+		reverse(a,0,n-1);
+	}
+	public static void rightrotate(int a[],int d,int n)
+	{
+		d%=n;		
+		reverse(a,n-d,n-1);
+		reverse(a,0,n-d-1);
+		reverse(a,0,n-1);
+	}
+	public static void reverse(int[] a,int start,int end)
+	{
+		while(start<end)
+		{
+			int temp=a[start];
+			a[start]=a[end];
+			a[end]=temp;
+			start++;
+			end--;
+		}
+	}
+	public static void main(String[] args) {
+		Scanner s=new Scanner(System.in);
+         System.out.println("Enter the number of delivery locations: ");
+         int n=s.nextInt();
+         int[] a=new int[n];
+         System.out.println("Enter the delivery locations (integers): ");
+         for(int i=0;i<n;i++)
+         {
+        	 a[i]=s.nextInt();
+         }
+         System.out.println("Enter the number of positions to rotate: ");
+         int k=s.nextInt();
+         if(k>0) {
+        	 rightrotate(a,k,n);
+        	 
+         }
+         else
+         {
+        	 leftrotate(a,-k,n);
+        	
+         }
+         System.out.println(Arrays.toString(a)); 
+	}
+
+}
+
+
+OUTPUT:
+Enter the number of delivery locations: 
+6
+Enter the delivery locations (integers): 
+10
+20
+30
+40
+50
+60
+Enter the number of positions to rotate: 
+-3
+[40, 50, 60, 10, 20, 30]
+
+
+````
+
+##  Day 30 - Problem Solving for the day - 27.03.2025  
+## Write a java program to count the number of substrings that match a given condition.( Only Vowels) 
+## Sample Input : 
+Enter a string: aeio 
+Enter a string: hello 
+Enter a string: education 
+Enter a string: aeiou
+
+````java[]
+
+package sample;
+import java.util.*;
+public class Main3 {
+public static boolean isvowel(char ch)
+{
+	return "aeiouAEIOU".indexOf(ch) !=-1;
+}
+public static int countsub(String str)
+{
+	int count=0;
+	int n=str.length();
+	for(int i=0;i<n;i++)
+	{
+		if(!isvowel(str.charAt(i)))
+		{
+			continue;
+		}
+		for(int j=i;j<n;j++)
+		{
+			if(isvowel(str.charAt(j)))
+			{
+				count++;
+			}
+			else {
+				break;
+			}
+		}	
+	}
+	return count;
+	
+}
+	public static void main(String[] args) {
+		Scanner s=new Scanner(System.in);
+		System.out.println("Enter the string ");
+		String str=s.nextLine();
+		int res=countsub(str);
+		System.out.println(" Number of substring given string "+res);		
+	}
+}
+
+OUTPUT:
+
+Enter the string 
+hello
+Number of substring given string 2
+
+````
+
+##  Day 29 - Problem Solving for the day - 26.03.2025  
+## Write a java program to remove all whitespace characters from a given string. 
+## Sample input  : 
+"  Java  Programming   is   Awesome   " 
+"   Remove   spaces   from  here!    " 
+"Multiple   spaces    between   words" 
+"  Hello World  " 
+
+````java[]
+
+package sample;
+import java.util.*;
+public class Main3 {
+
+	public static void main(String[] args) {
+		Scanner s=new Scanner(System.in);
+		System.out.println("Enter the string ");
+		String str=s.nextLine();
+		String res=str.replaceAll("\\s+", "");
+		System.out.println(" After remove the whitescpace "+res);
+	}
+
+}
+OUTPUT:
+
+Enter the string 
+"  Java  Programming   is   Awesome   " 
+ After remove the whitescpace "JavaProgrammingisAwesome"
+
+````
+
+##  Day 28 - Problem Solving for the day - 25.03.2025  
+## Write a java program to count how many times a given character appears in a string. 
+## Sample Input  : 
+1) Enter a string: programming 
+Enter a character to count: g 
+2) Enter a string: java programming 
+Enter a character to count: a 
+3) Enter a string: hello there 
+Enter a character to count: e 
+4) Enter a string: quick brown fox 
+Enter a character to count: o
+
+````java[]
+
+package sample;
+import java.util.*;
+public class Main3 {
+
+	public static void main(String[] args) {
+		Scanner s=new Scanner(System.in);
+		System.out.println("Enter the string ");
+		String str=s.nextLine();
+		System.out.println("Enter the character ");
+		char ch=s.next().charAt(0);
+		int count=0;
+		for(int i=0;i<str.length();i++)
+		{
+			if(str.charAt(i)==ch)
+			{
+				count++;
+			}
+		}
+		System.out.println(" count of the character occurence "+count);
+	}
+
+}
+
+
+OUTPUT:
+
+Enter the string 
+programming 
+Enter the character 
+g
+count of the character occurence 2
+
+Enter the string 
+hello there 
+Enter the character 
+e
+count of the character occurence 3
+
+````
+## Day 27 - Problem Solving for the day - 24.03.2025 
+## Check if two strings are anagrams (contain the same characters in a different order).  
+## Sample Input  : 
+1) String str1 = "listen"; 
+String str2 = "silent"; 
+2) String str1 = "aabbcc"; 
+String str2 = "abcabc"; 
+3) String str1 = "rat"; 
+String str2 = "car"; 
+4) String str1 = "hello"; 
+String str2 = "world";
+
+````java[]
+
+package sample;
+import java.util.*;
+public class Main3 {
+
+	 
+	  
+	public static void main(String[] args) {
+		Scanner s=new Scanner(System.in);
+		System.out.println("Enter the string 1");
+		String str=s.nextLine();
+		System.out.println("Enter the string 2 ");
+		String str1=s.nextLine();
+        str=str.toLowerCase();
+        str1=str1.toLowerCase();
+        if(str.length()==str1.length()) {
+        	char[] c1=str.toCharArray();
+        	char[] c2=str.toCharArray();
+        	
+        	Arrays.sort(c1);
+        	Arrays.sort(c2);
+        	boolean res=Arrays.equals(c1, c2);
+        	if(res)
+    		{
+    			System.out.println("Anagram");
+    		}
+    		else {
+    			System.out.println("Not anagram ");
+    		}
+        }
+        else {
+        	System.out.println("Not anagram");
+        }
+		
+	}
+
+}
+
+
+OUTPUT:
+
+Enter the string 1
+listen
+Enter the string 2 
+silent
+Anagram
+
+````
+
+## Day 26 - Problem Solving for the day - 23.03.2025 
+## Create a online store’s inventory management system. The system needs to find which products are currently available in two different warehouses. Each warehouse has its own inventory list, and you need to identify which products are common in both warehouses. Given two arrays of integers representing the product IDs available in two different warehouses, write a Java function that finds the intersection of these two arrays. The intersection should contain only the product IDs that are present in both arrays. The returned array should not have duplicates. 
+## Example Input: 
+## Warehouse 1 :  Inventory (Arr 1): [1, 2, 2, 1, 5, 7] 
+## Warehouse 2 :  Inventory (Arr 2): [2, 2, 3, 4, 5, 6]
+
+````java[]
+
+package sample;
+import java.util.*;
+public class Main4 {
+
+	public static void main(String[] args) {
+		Scanner s=new Scanner(System.in);
+		int n=s.nextInt();
+        int[] a=new int[n];
+        System.out.println("Enter element array 1");
+        for(int i=0;i<n;i++)
+        {
+        	a[i]=s.nextInt();
+        }
+        int n1=s.nextInt();
+        int[] a1=new int[n];
+        System.out.println("Enter element array 2");
+        for(int i=0;i<n1;i++)
+        {
+        	a1[i]=s.nextInt();
+        }
+        Set<Integer> unique=new HashSet<>();
+        Set<Integer> res=new HashSet<>();
+        for(int num:a)
+        {
+        	unique.add(num);
+        }
+        for(int num:a1)
+        {
+        	if(unique.contains(num))
+        	{
+        		res.add(num);
+        	}
+        }
+        int j=0;
+        int result[]=new int[res.size()];
+        for(int num:res)
+        {
+        	result[j++]=num;
+        }
+        System.out.println(Arrays.toString(result));
+        
+	}
+
+}
+
+OUTPUT:
+6
+Enter element array 1
+1
+2
+2
+1
+5
+7
+6
+Enter element array 2
+2
+2
+3
+4
+5
+6
+[2, 5]
+
+````
+
+
 
 
 
