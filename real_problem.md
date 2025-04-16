@@ -347,3 +347,87 @@ For any wrong input display INVALID INPUT
 
 ````java[]
 
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner s = new Scanner(System.in);
+        System.out.println("Enter the total number of monkey");
+       int n=s.nextInt();
+       System.out.println("Enter the Number of eatable Bananas by Single Monkey ");
+       int k=s.nextInt();
+       System.out.println("Enter the Number of eatable peanuts by Single Monkey ");
+       int j=s.nextInt();
+       System.out.println("Enter the total number of banana");
+       int m=s.nextInt();
+       
+       System.out.println("Enter the total number of peanuts");
+       int p=s.nextInt();
+       
+       if(m<=0 || k<=0 || j<=0 ||p<=0 )
+       {
+           System.out.println("Invalid input");
+       }
+       int left=n;
+       for(int i=0;i<n;i++)
+       {
+           if(m>=k)
+           {
+               m-=k;
+               left--;
+           }
+           else if(p>=j)
+           {
+               p-=j;
+               left--;
+           }
+           else {
+               break;
+           }
+       }
+       System.out.println("Number of  Monkeys left on the tree: "+ left);
+       
+    }
+}
+
+
+OUTPUT:
+
+Enter the total number of monkey
+20
+Enter the Number of eatable Bananas by Single Monkey 
+2
+Enter the Number of eatable peanuts by Single Monkey 
+3
+Enter the total number of banana
+12
+Enter the total number of peanuts
+12
+Number of  Monkeys left on the tree: 10
+
+````
+
+## Day 34 - Problem Solving for the day - 02.04.2025  
+## There is a JAR full of candies for sale at a mall counter. JAR has the capacity N, that is JAR can contain maximum N candies when JAR is full. At any point of time. JAR can have M number of Candies where M<=N. Candies are served to the customers. JAR is never remain empty as when last k candies are left. JAR if refilled with new candies in such a way that JAR get full. 
+Write a code to implement above scenario. Display JAR at counter with available 
+number of candies. Input should be the number of candies one customer can order 
+at point of time. Update the JAR after each purchase and display JAR at Counter. 
+Output should give number of Candies sold and updated number of Candies in JAR. 
+If Input is more than candies in JAR, return: “INVALID INPUT” 
+Given, 
+N=10, where N is NUMBER OF CANDIES AVAILABLE 
+K =< 5, where k is number of minimum candies that must be inside JAR ever. 
+Example 1:(N = 10, k =< 5) 
+Input Value 
+3 
+Output Value 
+NUMBER OF CANDIES SOLD : 3 
+NUMBER OF CANDIES LEFT : 7 
+Example 2 : (N=10, k<=5) 
+Input Value 
+0 
+Output Value 
+INVALID INPUT 
+NUMBER OF CANDIES LEFT : 10
+
+
