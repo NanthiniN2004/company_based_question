@@ -116,6 +116,8 @@ Enter the number 2
 count of the carry 3
 
 ````
+
+
 ##  Day 37 - Problem Solving for the day - 05.04.2025 
  
 ## Selection of MPCS exams include a fitness test which is conducted on ground. There will be a batch of 3 trainees, appearing for running test in track for 3 rounds. You need to record their oxygen level after every round. After trainee are finished with all rounds, calculate for each trainee his average oxygen level over the 3 rounds and select one with highest oxygen level as the most fit trainee. If more than one trainee attains the same highest average level, they all need to be selected. 
@@ -146,16 +148,16 @@ Trainee Number : 3
  
 ## Note: 
 Input should be 9 integer values representing oxygen levels entered in order as   
-Round 1 
+## Round 1 
 Oxygen value of trainee 1 
 Oxygen value of trainee 2 
 Oxygen value of trainee 3 
  
-Round 2 
+## Round 2 
 Oxygen value of trainee 1 
 Oxygen value of trainee 2 
 Oxygen value of trainee 3 
-Round 3 
+## Round 3 
 Oxygen value of trainee 1 
 Oxygen value of trainee 2 
 Oxygen value of trainee 3 
@@ -163,4 +165,185 @@ Output must be in given format as in above example. For any wrong input final ou
 
 ````JAVA[]
 
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner s = new Scanner(System.in);
+        System.out.println("Enter the oxygen level for each round:");
+        
+        int[][] oxygen = new int[3][3];
+        boolean isValid = true;
+
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                int input = s.nextInt();
+                if (input < 1 || input > 100) {
+                    isValid = false;
+                }
+                oxygen[i][j] = input;
+            }
+        }
+
+        if (!isValid) {
+            System.out.println("INVALID INPUT");
+            return;
+        }
+
+        int[] avg = new int[3];
+        for (int t = 0; t < 3; t++) {
+            int sum = 0;
+            for (int r = 0; r < 3; r++) {
+                sum += oxygen[r][t];
+            }
+            avg[t] = Math.round(sum / 3.0f);
+        }
+
+        int maxAverage = avg[0];
+        for (int i = 1; i < avg.length; i++) {
+            maxAverage = Math.max(maxAverage, avg[i]);
+        }
+        if (maxAverage < 70) {
+            System.out.println("All trainees are unfit");
+        } else {
+            for (int i = 0; i < 3; i++) {
+                if (avg[i] == maxAverage) {
+                    System.out.println("Trainee Number : " + (i + 1));
+                }
+            }
+        }
+    }
+}
+
+
+OUTPUT:
+
+Enter the oxygen level for each round:
+95
+92
+95
+92
+90
+92
+90
+0 92
+90
+Trainee Number : 1
+Trainee Number : 3
+
+````
+
+##  Day 36 - Problem Solving for the day - 04.04.2025 
+  
+## Particulate matters are the biggest contributors to Delhi pollution. The main reason behind the increase in the concentration of PMs include vehicle emission by applying Odd Even concept for all types of vehicles. The vehicles with the odd last digit in the registration number will be allowed on roads on odd dates and those with even last digit will on even dates. Given an integer array a[], contains the last digit of the registration number of N vehicles traveling on date D(a positive integer). The task is to calculate the total fine collected by the traffic police department from the vehicles violating the rules. 
+ 
+## Note : For violating the rule, vehicles would be fined as X Rs. 
+ 
+## Example 1: 
+ 
+## Input :  
+4 -> Value of N 
+ 
+{5,2,3,7} -> a[], Elements a[0] to a[N-1], during input each element is separated by a 
+new line 
+ 
+12 -> Value of D, i.e. date  
+ 
+200 -> Value of x i.e. fine 
+ 
+## Output : 
+ 
+600  -> total fine collected
+
+````java[]
+
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner s = new Scanner(System.in);
+       int n=s.nextInt();
+       int[] a=new int[n];
+       System.out.println("Enter the element");
+       for(int i=0;i<n;i++)
+       {
+           a[i]=s.nextInt();
+       }
+       System.out.println("Enter the date");
+       int d=s.nextInt();
+       System.out.println("Enter the fine amount ");
+       int x=s.nextInt();
+       int totalfine;
+       if(d%2==0)
+       {
+           int count=0;
+           for(int i=0;i<n;i++)
+           {
+               if(a[i]%2 !=0)
+               {
+                   count++;
+               }
+               
+           }
+            totalfine=x*count;
+       }
+       else{
+            int count1=0;
+           for(int i=0;i<n;i++)
+           {
+               if(a[i]%2 ==0)
+               {
+                   count1++;
+               }
+               
+           }
+           totalfine=x*count1;
+           
+       }
+       System.out.println("Total fine "+ totalfine);
+    }
+}
+
+
+OUTPUT:
+
+4
+Enter the element
+5
+2
+3
+7
+Enter the date
+12
+Enter the fine amount 
+200
+Total fine 600
+
+````
+## Day 35 - Problem Solving for the day - 03.04.2025  
+## There are total n number of Monkeys sitting on the branches of a huge Tree. As travelers offer Bananas and Peanuts, the Monkeys jump down the Tree. If every Monkey can eat k Bananas and j Peanuts. If total m number of Bananas and p number of Peanuts are offered by travelers, calculate how many Monkeys remain on the Tree after some of them jumped down to eat. At a time one Monkeys gets down and finishes eating and go to the other side of the road. The Monkey who climbed down does not climb up again after eating until the other Monkeys finish eating. Monkey can either eat k Bananas or j Peanuts. If for last Monkey there are less than k Bananas left on the ground or less than j Peanuts left on the ground, only that Monkey can eat Bananas(<k) along with the Peanuts(<j). Write code to take inputsas n, m, p, k, j and return  the number of Monkeys left on the Tree.
+## Where, n= Total no of Monkeys 
+## k= Number of eatable Bananas by Single Monkey (Monkey that jumped down last may get less than k Bananas) 
+## j = Number of eatable Peanuts by single Monkey(Monkey that jumped down last may get less than j Peanuts) 
+## m = Total number of Bananas 
+## p  = Total number of Peanuts 
+ 
+## Remember that the Monkeys always eat Bananas and Peanuts, so there is no possibility of k and j having a value zero 
+ 
+## Example 1: 
+## Input Values     
+20 
+2 
+3 
+12 
+12 
+ ## Output Values 
+ 
+Number of  Monkeys left on the tree:10 
+ 
+## Note: Kindly follow  the order of inputs as n,k,j,m,p as given in the above example. 
+And output must include  the same format  as in above example(Number of Monkeys left on the Tree:)
+For any wrong input display INVALID INPUT
+
+````java[]
 
