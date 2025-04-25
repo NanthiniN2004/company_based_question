@@ -77,3 +77,44 @@ Duplicate element 3
 
 ````
 
+##  DAY 52 - Problem Solving for the day - 21.04.2025 
+## Multiple Strings 
+## Given two non-negative integers num1 and num2 represented as strings, return the product of num1 and num2, also represented as a string. Note: You must not use any built-in BigInteger library or convert the inputs to integer directly. 
+## Example 1: 
+Input: num1 = "2", num2 = "3" 
+Output: "6" 
+## Example 2: 
+Input: num1 = "123", num2 = "456" 
+Output: "56088"
+
+````java[]
+
+
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+	Scanner s=new Scanner(System.in);
+	String s1=s.next();
+	String s2=s.next();
+	int n1=0,n2=0;
+	for(int i=0;i<s1.length() || i<s2.length();i++)
+	{
+	     n1=(n1*10)+((int)s1.charAt(i)-48);
+	      n2=(n2*10)+((int)s2.charAt(i)-48);
+	}
+	int prod=n1*n2;
+	System.out.println(prod);
+	}
+}
+
+
+OUTPUT:
+
+123
+456
+56088
+
+````
+
+
