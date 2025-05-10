@@ -226,7 +226,155 @@ output:
 [4, 3, 16]
 
 `````
-## 
+## Day 64 - Problem Solving for the day - 03.05.2025 
+## Pattern : Replace negative values with zero
+## Description: Write a program to convert all negative elements to 0.
+## Sample Input: arr = [1,-2,3,-4]
+## Sample Output: [1,0,3,0]
+
+````java[]
+
+package array;
+
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class Replacenagative {
+
+	public static int[] replace(int[] a,int n)
+	{
+		for(int i=0;i<n;i++)
+		{
+			if(a[i]<0)
+			{
+				a[i]=0;
+			}
+		}
+		return a;
+	}
+
+	public static void main(String[] args) {
+		Scanner s=new Scanner(System.in);
+		int n=s.nextInt();
+		int[] a=new int[n];
+		for(int i=0;i<n;i++)
+		{
+			a[i]=s.nextInt();
+		}
+		int[] res=replace(a,n);
+		System.out.println(Arrays.toString(res));
+	}
+}
+
+output:
+
+4
+1
+-2
+3
+-4
+[1, 0, 3, 0]
+````
+
+## Day 63 - Problem Solving for the day - 02.05.2025 
+## Pattern : Find the sum of odd elements only
+## Description: write a program to add only the odd values from the array.
+## Sample Input: arr = [1,2,3,4]
+## Sample Output: 4
+
+```java[]
+
+package array;
+
+import java.util.*;
+
+public class Sumofoddnumber {
+	public static int replace(int[] a,int n)
+	{
+		int sum=0;
+		for(int i=0;i<n;i++)
+		{
+			if(a[i]%2!=0)
+			{
+				sum+=a[i];
+			}
+		}
+		return sum;
+	}
+
+	public static void main(String[] args) {
+		Scanner s=new Scanner(System.in);
+		int n=s.nextInt();
+		int[] a=new int[n];
+		for(int i=0;i<n;i++)
+		{
+			a[i]=s.nextInt();
+		}
+		int res=replace(a,n);
+		System.out.println(" sum of the odd number "+ res);
+	}
+}
+
+OUTPUT:
+
+4
+
+1
+2
+3
+4
+ sum of the odd number 4
+
+````
+## Day 62 - Problem Solving for the day - 01.05.2025 
+## Pattern : Find the sum of even elements only
+## Description: Write a program to add only the even values from the array.
+## Sample Input: arr = [1,2,3,4]
+## Sample Output: 6
+
+````JAVA[]
+
+package array;
+
+import java.util.*;
+
+public class Sumofevennumber {
+	public static int replace(int[] a,int n)
+	{
+		int sum=0;
+		for(int i=0;i<n;i++)
+		{
+			if(a[i]%2==0)
+			{
+				sum+=a[i];
+			}
+		}
+		return sum;
+	}
+
+	public static void main(String[] args) {
+		Scanner s=new Scanner(System.in);
+		int n=s.nextInt();
+		int[] a=new int[n];
+		for(int i=0;i<n;i++)
+		{
+			a[i]=s.nextInt();
+		}
+		int res=replace(a,n);
+		System.out.println(" sum of the even number "+ res);
+	}
+}
+
+output:
+4
+1
+2
+3
+4
+ sum of the even number 6
+
+````
+
 
 
 
