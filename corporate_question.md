@@ -375,6 +375,99 @@ output:
 
 ````
 
+## Day 60 - Problem Solving for the day - 29.04.2025
+## Pattern : Rotate array to the right by 1
+## Description:Write a program to shift all elements one place to the right.
+## Sample Input: arr = [1,2,3,4]
+## Sample Output: [4,1,2,3]
+
+````java[]
+
+package array;
+import java.util.*;
+import java.util.Scanner;
+
+public class Rotatebyone {
+	public static int[] rotate(int[] a,int n)
+	{
+		int last=a[n-1];
+		for(int i=n-1;i>0;i--)
+		{
+			a[i]=a[i-1];
+		}
+		a[0]=last;
+		return a;
+	}
+
+	public static void main(String[] args) {
+		Scanner s=new Scanner(System.in);
+		int n=s.nextInt();
+		int[] a=new int[n];
+		for(int i=0;i<n;i++)
+		{
+			a[i]=s.nextInt();
+		}
+		int[] res=rotate(a,n);
+		System.out.println("Rotate the array by one  "+ Arrays.toString(res));
+	}
+}
+
+OUTPUT:
+
+4
+1
+2
+3
+4
+Rotate the array by one  [4, 1, 2, 3]
+
+````
+## Day 59 - Problem Solving for the day - 28.04.2025
+## Pattern : Rotate array to the left by 1
+## Description:write a program to shift all elements one place to the left.
+## Sample Input: arr = [1,2,3,4]
+## Sample Output: [2,3,4,1]
+
+````java[]
+
+package array;
+
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class Leftrotatebyone {
+	public static int[] rotate(int[] a,int n)
+	{
+		int first=a[0];
+		for(int i=0;i<n-1;i++)
+		{
+			a[i]=a[i+1];
+		}
+		a[n-1]=first;
+		return a;
+	}
+
+	public static void main(String[] args) {
+		Scanner s=new Scanner(System.in);
+		int n=s.nextInt();
+		int[] a=new int[n];
+		for(int i=0;i<n;i++)
+		{
+			a[i]=s.nextInt();
+		}
+		int[] res=rotate(a,n);
+		System.out.println("Rotate the array  left side by one  "+ Arrays.toString(res));
+	}
+}
+
+OUTPUT:
+4
+1
+2
+3
+4
+Rotate the array  left side by one  [2, 3, 4, 1]
+````
 
 
 
