@@ -1,6 +1,8 @@
-## import java.util.*;
+## DOUBLY LINKED LIST
 ````java[]
 
+
+import java.util.*;
 class Node{
     int data;
     Node next;
