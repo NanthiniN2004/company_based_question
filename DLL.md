@@ -1,4 +1,6 @@
 ## import java.util.*;
+````java[]
+
 class Node{
     int data;
     Node next;
